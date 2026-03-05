@@ -28,7 +28,7 @@ class ListaEncadeada {
       this.head = novoNo;
       return;
     }
-
+    
     let atual = this.head;
 
     while (atual.proximo !== null) {
