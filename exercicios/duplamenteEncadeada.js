@@ -38,12 +38,32 @@ class ListaDupla {
     if (this.head === null) {
       //Verifica se o head tá vazio, se estiver o head vai receber o valor..
       this.tail = novoNo;
+      this.head = novoNo;
       return;
     }
 
-    novoNo.anterior = this.tail; //novo nó
-    this.head.proximo = novoNo;
+    novoNo.anterior = this.tail; //Novo nó aponta para o antigo tail
+    this.tail.proximo = novoNo; //O antigo tail aponta para o novo tail
     novoNo.proximo = null;
     this.tail = novoNo;
+  }
+
+  percorrerLista() {
+    console.log("Percorrendo do início para o fim:");
+    let atual = this.head;
+  
+    while (atual !== null) {
+      console.log(atual.valor);
+      atual = atual.proximo;
+    }
+  
+    console.log("Percorrendo do fim para o início:");
+  
+    atual = this.tail;
+  
+    while (atual !== null) {
+      console.log(atual.valor);
+      atual = atual.anterior;
+    }
   }
 }
