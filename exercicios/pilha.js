@@ -5,4 +5,21 @@ class pilha{
     constructor(){
         this.itens = [];
     }
+
+    push(valor){
+        this.itens.push(valor)
+    }
+
+    pop(){
+      return this.itens.pop();
+    }
+
+    top(){
+        if(this.itens === 0){
+            return null;
+        }
+     return this.itens[this.itens.length - 1]
+    }
+
 }
+
