@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8081:80"
+    volumes:
+      - ./frontend/dist:/usr/share/nginx/html
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sistema
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 123456
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
