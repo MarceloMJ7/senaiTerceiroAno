@@ -1,0 +1,1 @@
+//Implemente um stream Duplex para modificar dados durante a leitura e escrita
