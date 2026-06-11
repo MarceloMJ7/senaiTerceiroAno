@@ -20,7 +20,7 @@ async function inserirUsuario() {
         `;
 
         const valores = [
-            'Marcelo',
+            'Marcelo de Moura Faria Costa',
             'marcelo@email.com'
         ];
 
