@@ -1,0 +1,17 @@
+{
+  "name": "modulo08-api-rest",
+  "version": "1.0.0",
+  "description": "API RESTful em camadas (routes/controllers/models) com MySQL, validação Joi e Swagger",
+  "main": "app.js",
+  "scripts": {
+    "criar-tabela": "node criarTabela.js",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "joi": "^17.13.0",
+    "mysql2": "^3.10.0",
+    "swagger-ui-express": "^5.0.1"
+  }
+}

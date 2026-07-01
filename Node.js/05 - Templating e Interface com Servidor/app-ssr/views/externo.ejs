@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+
+<h1>Usuários de uma API externa</h1>
+<p>Dados obtidos da API pública JSONPlaceholder.</p>
+
+<ul>
+  <% externos.forEach(function (u) { %>
+    <li><%= u.name %> (<%= u.email %>)</li>
+  <% }) %>
+</ul>
+
+<%- include('partials/footer') %>

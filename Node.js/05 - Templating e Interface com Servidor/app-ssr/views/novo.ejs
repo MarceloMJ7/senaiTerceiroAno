@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+
+<h1>Novo usuário</h1>
+
+<% if (erros.length > 0) { %>
+  <ul style="color: red;">
+    <% erros.forEach(function (e) { %>
+      <li><%= e %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<form method="POST" action="/usuarios">
+  <p><input type="text" name="nome" placeholder="Nome" value="<%= dados.nome || '' %>"></p>
+  <p><input type="email" name="email" placeholder="E-mail" value="<%= dados.email || '' %>"></p>
+  <button type="submit">Salvar</button>
+</form>
+
+<%- include('partials/footer') %>

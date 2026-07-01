@@ -1,0 +1,15 @@
+{
+  "name": "modulo04-app-web",
+  "version": "1.0.0",
+  "description": "API Express + MySQL com middleware, CRUD e prepared statements",
+  "main": "app.js",
+  "scripts": {
+    "criar-tabela": "node criarTabela.js",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.10.0"
+  }
+}

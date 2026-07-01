@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat em tempo real</title>
+</head>
+<body>
+  <h1>Chat</h1>
+  <ul id="mensagens"></ul>
+  <input id="texto" placeholder="Digite e tecle Enter">
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const input = document.getElementById("texto");
+    const lista = document.getElementById("mensagens");
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && input.value) {
+        socket.emit("message", input.value);
+        input.value = "";
+      }
+    });
+
+    socket.on("message", (msg) => {
+      const li = document.createElement("li");
+      li.textContent = msg;
+      lista.appendChild(li);
+    });
+  </script>
+</body>
+</html>

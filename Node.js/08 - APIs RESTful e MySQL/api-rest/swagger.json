@@ -1,0 +1,51 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Usuários — Trilha Node",
+    "version": "1.0.0",
+    "description": "API RESTful de usuários com CRUD, paginação, filtro e validação."
+  },
+  "paths": {
+    "/api/usuarios": {
+      "get": {
+        "summary": "Lista usuários (com paginação e filtro por nome)",
+        "parameters": [
+          { "name": "pagina", "in": "query", "schema": { "type": "integer" } },
+          { "name": "limite", "in": "query", "schema": { "type": "integer" } },
+          { "name": "nome", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Lista de usuários" } }
+      },
+      "post": {
+        "summary": "Cria um usuário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": { "type": "string" },
+                  "email": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "Criado" }, "400": { "description": "Dados inválidos" } }
+      }
+    },
+    "/api/usuarios/{id}": {
+      "put": {
+        "summary": "Atualiza um usuário pelo ID",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": { "200": { "description": "Atualizado" }, "404": { "description": "Não encontrado" } }
+      },
+      "delete": {
+        "summary": "Exclui um usuário pelo ID",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": { "204": { "description": "Excluído" }, "404": { "description": "Não encontrado" } }
+      }
+    }
+  }
+}

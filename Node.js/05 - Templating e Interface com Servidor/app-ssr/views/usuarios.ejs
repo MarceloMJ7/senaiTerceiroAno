@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+
+<h1>Usuários</h1>
+
+<% if (erro) { %>
+  <p style="color: red;">Não foi possível carregar os usuários: <%= erro %></p>
+<% } %>
+
+<ul>
+  <% usuarios.forEach(function (u) { %>
+    <li><%= u.nome %> — <%= u.email %></li>
+  <% }) %>
+</ul>
+
+<a href="/usuarios/novo">Cadastrar novo</a>
+
+<%- include('partials/footer') %>
