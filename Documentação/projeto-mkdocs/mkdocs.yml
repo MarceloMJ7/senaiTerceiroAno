@@ -1,0 +1,28 @@
+site_name: Documentação do Meu Projeto
+site_description: Projeto prático da Trilha de Documentação (MkDocs)
+
+theme:
+  name: material
+  language: pt-BR
+  palette:
+    primary: indigo
+    accent: pink
+  features:
+    - navigation.sections
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Sobre: sobre.md
+  - Guia do Usuário: guia.md
+  - API:
+      - Visão geral: api/index.md
+      - Referência (Swagger): api/swagger-ui/index.html
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+
+plugins:
+  - search

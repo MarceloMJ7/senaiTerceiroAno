@@ -1,0 +1,23 @@
+# Exemplo de deploy contínuo no GitHub Pages (Módulo 04 - Exercício 4).
+# Em um repositório dedicado só a este projeto MkDocs, salve este arquivo como
+# .github/workflows/deploy.yml. Ele publica a documentação a cada push na main.
+#
+# (Aqui ele fica como exemplo e NÃO é ativado, porque este repositório tem várias
+#  trilhas na raiz — ativá-lo dispararia um build que não corresponde à raiz.)
+name: Deploy MkDocs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install mkdocs mkdocs-material
+      - run: mkdocs gh-deploy --force

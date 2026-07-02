@@ -1,0 +1,57 @@
+openapi: 3.0.0
+info:
+  title: API de Produtos
+  version: 1.0.0
+  description: API fictícia para gerenciar os produtos de uma loja.
+paths:
+  /produtos:
+    get:
+      summary: Lista todos os produtos
+      responses:
+        "200":
+          description: Lista de produtos retornada com sucesso
+    post:
+      summary: Cria um novo produto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Produto"
+      responses:
+        "201":
+          description: Produto criado
+  /produtos/{id}:
+    put:
+      summary: Atualiza um produto existente
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Produto atualizado
+    delete:
+      summary: Exclui um produto
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Produto excluído
+components:
+  schemas:
+    Produto:
+      type: object
+      properties:
+        nome:
+          type: string
+          example: Teclado
+        preco:
+          type: number
+          example: 120.0
